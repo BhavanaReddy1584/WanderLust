@@ -61,7 +61,7 @@ const sessionOptions = {
   name: "wanderlust-session",
   secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     httpOnly: true,
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,

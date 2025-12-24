@@ -17,7 +17,7 @@
     scrollbar-width: none;
     padding: 1rem 0;
     align-items: center;
-    flex: 1; /* IMPORTANT */
+    flex: 1; 
   }
 
   #filters::-webkit-scrollbar {
@@ -68,7 +68,7 @@
 
   <button class="scroll-btn left">&#10094;</button>
 
-  <!-- SCROLLABLE FILTERS (UNCHANGED) -->
+  <!-- SCROLLABLE FILTERS  -->
   <div id="filters">
 
     <a href="/listings?category=Trending" class="filter text-decoration-none text-dark">
@@ -76,59 +76,14 @@
       <p>Trending</p>
     </a>
 
-    <a href="/listings?category=Rooms" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-bed"></i></div>
-      <p>Rooms</p>
-    </a>
-
-    <a href="/listings?category=Iconic Cities" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-mountain-city"></i></div>
-      <p>Iconic Cities</p>
-    </a>
-
-    <a href="/listings?category=Castles" class="filter text-decoration-none text-dark">
-      <div><i class="fa-brands fa-fort-awesome"></i></div>
-      <p>Castles</p>
-    </a>
-
-    <a href="/listings?category=Mountains" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-mountain"></i></div>
-      <p>Mountains</p>
-    </a>
-
     <a href="/listings?category=Amazing Pools" class="filter text-decoration-none text-dark">
       <div><i class="fa-solid fa-person-swimming"></i></div>
       <p>Amazing Pools</p>
     </a>
 
-    <a href="/listings?category=Camping" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-campground"></i></div>
-      <p>Camping</p>
-    </a>
-
-    <a href="/listings?category=Farms" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-cow"></i></div>
-      <p>Farms</p>
-    </a>
-
     <a href="/listings?category=Arctic" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-snowflake"></i></div>
+      <div><i class="fa-solid fa-tree"></i></div>
       <p>Arctic</p>
-    </a>
-
-    <a href="/listings?category=Houses" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-house"></i></div>
-      <p>Houses</p>
-    </a>
-
-    <a href="/listings?category=Nature" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-leaf"></i></div>
-      <p>Nature</p>
-    </a>
-
-    <a href="/listings?category=Desert" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-sun"></i></div>
-      <p>Desert</p>
     </a>
 
     <a href="/listings?category=Beach" class="filter text-decoration-none text-dark">
@@ -136,14 +91,19 @@
       <p>Beach</p>
     </a>
 
-    <a href="/listings?category=Lakes" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-water"></i></div>
-      <p>Lakes</p>
+    <a href="/listings?category=Bungalows" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Bungalows</p>
+    </a>
+    
+    <a href="/listings?category=Camping" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
     </a>
 
-    <a href="/listings?category=Tropical" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-tree"></i></div>
-      <p>Tropical</p>
+    <a href="/listings?category=Castles" class="filter text-decoration-none text-dark">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
     </a>
 
     <a href="/listings?category=Countryside" class="filter text-decoration-none text-dark">
@@ -151,9 +111,15 @@
       <p>Countryside</p>
     </a>
 
-    <a href="/listings?category=Vineyards" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-wine-glass"></i></div>
-      <p>Vineyards</p>
+    <a href="/listings?category=Farms" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms</p>
+    </a>
+
+
+    <a href="/listings?category=Houses" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-house"></i></div>
+      <p>Houses</p>
     </a>
 
     <a href="/listings?category=Islands" class="filter text-decoration-none text-dark">
@@ -161,21 +127,31 @@
       <p>Islands</p>
     </a>
 
-    <a href="/listings?category=Historical" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-landmark"></i></div>
-      <p>Historical</p>
+    <a href="/listings?category=Mountains" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
     </a>
 
-    <a href="/listings?category=Sustainable" class="filter text-decoration-none text-dark">
-      <div><i class="fa-solid fa-recycle"></i></div>
-      <p>Sustainable</p>
+    <a href="/listings?category=Nature" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-leaf"></i></div>
+      <p>Nature</p>
+    </a>
+
+    <a href="/listings?category=Rooms" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </a>
+
+    <a href="/listings?category=Vineyards" class="filter text-decoration-none text-dark">
+      <div><i class="fa-solid fa-wine-glass"></i></div>
+      <p>Vineyards</p>
     </a>
 
   </div>
 
   <button class="scroll-btn right">&#10095;</button>
 
-  <!-- FIXED TOGGLE (OUTSIDE SCROLL) -->
+  <!-- TOGGLE (OUTSIDE SCROLL) -->
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">

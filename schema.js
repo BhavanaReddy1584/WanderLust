@@ -12,26 +12,21 @@ module.exports.listingSchema = Joi.object({
     // ✅ ADD THIS
     category: Joi.string()
       .valid(
-        "Trending",
-        "Rooms",
-        "Iconic Cities",
-        "Castles",
-        "Mountains",
-        "Amazing Pools",
-        "Camping",
-        "Farms",
-        "Arctic",
-        "Houses",
-        "Nature",
-        "Desert",
-        "Beach",
-        "Lakes",
-        "Tropical",
-        "Countryside",
-        "Vineyards",
-        "Islands",
-        "Historical",
-        "Sustainable"
+      "Trending",
+      "Amazing Pools",
+      "Arctic",
+      "Beach",
+      "Bungalows",
+      "Camping",
+      "Castles",
+      "Countryside",
+      "Farms",
+      "Houses",
+      "Islands",
+      "Mountains",
+      "Nature",
+      "Rooms",
+      "Vineyards"
       )
       .required()
   }).required()

@@ -2,19 +2,29 @@ const Listing = require('../models/listing');
 
 
 module.exports.index = async (req, res) => {
-  const { category } =req.query;
+  const { category, search } = req.query;
 
   let filter = {};
+
+  // CATEGORY FILTER
   if (category) {
     filter.category = category;
   }
+
+  // LOCATION SEARCH (case-insensitive)
+  if (search) {
+    filter.location = { $regex: search, $options: "i" };
+  }
+
   const allListings = await Listing.find(filter);
 
   res.render("listings/index.ejs", {
     allListings,
-    selectCategory: category || "Trending"
+    selectCategory: category || "Trending",
+    search: search || ""
   });
 };
+
 
 module.exports.renderNewForm = (req, res) => {
   res.render("listings/new.ejs");

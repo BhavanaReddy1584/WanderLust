@@ -27,31 +27,27 @@ const listingSchema = new Schema({
   },
 
   category: {
-    type: String,
+    type: [String],
     enum: [
       "Trending",
-      "Rooms",
-      "Iconic Cities",
-      "Castles",
-      "Mountains",
       "Amazing Pools",
-      "Camping",
-      "Farms",
       "Arctic",
-      "Houses",
-      "Nature",
-      "Desert",
       "Beach",
-      "Lakes",
-      "Tropical",
+      "Bungalows",
+      "Camping",
+      "Castles",
       "Countryside",
-      "Vineyards",
+      "Farms",
+      "Houses",
       "Islands",
-      "Historical",
-      "Sustainable"
+      "Mountains",
+      "Nature",
+      "Rooms",
+      "Vineyards",
     ],
     required: true
   }
+
 
 });
 
