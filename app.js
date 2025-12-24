@@ -39,6 +39,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsMate);
 
+app.set("trust proxy", 1);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -61,7 +63,7 @@ const sessionOptions = {
   name: "wanderlust-session",
   secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
     httpOnly: true,
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
@@ -106,6 +108,8 @@ app.use((err, req, res, next) => {
 });
 
 // SERVER 
-app.listen(8080, () => {
-  console.log("Server is listening on port 8080");
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
