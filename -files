@@ -1,0 +1,17 @@
+[33mcommit d5ccb3b04594fe24420dab606e40aa388194d9f0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Bhavna <augusteen1584@gmail.com>
+Date:   Wed Dec 24 22:41:11 2025 +0530
+
+    Add project files
+
+ app.js                    |  2 [32m+[m[31m-[m
+ controllers/listings.js   | 14 [32m++++++[m[31m-[m
+ models/listing.js         | 24 [32m+++++[m[31m-------[m
+ public/routes/listing.js  | 85 [32m++++++++++++++++++++++++++++++++++++++++[m
+ public/routes/review.js   | 20 [32m++++++++++[m
+ public/routes/user.js     | 39 [32m+++++++++++++++++++[m
+ schema.js                 | 35 [32m++++++++[m[31m---------[m
+ views/includes/navbar.ejs | 92 [32m++++++++++++++++++++++++++++++++[m[31m------------[m
+ views/listings/index.ejs  | 98 [32m++++++++++++++++++[m[31m-----------------------------[m
+ views/listings/new.ejs    | 21 [32m++++[m[31m------[m
+ 10 files changed, 294 insertions(+), 136 deletions(-)
