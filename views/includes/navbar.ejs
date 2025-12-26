@@ -32,39 +32,42 @@
     </div>
 
     <!-- CENTER -->
-    <form
-  class="d-none d-lg-flex align-items-center mx-auto"
-  style="max-width: 420px; width: 100%;"
-  role="search"
-  action="/listings"
-  method="GET"
->
-  <input
-    class="form-control rounded-pill me-2 search-input"
-    type="search"
-    name="search"
-    placeholder="Search destinations"
-    value="<%= typeof search !== 'undefined' ? search : '' %>"
-  />
+    <form class="d-none d-lg-flex align-items-center mx-auto"
+      style="max-width: 420px; width: 100%;"
+      role="search"
+      action="/listings"
+      method="GET">
+    <input
+      class="form-control rounded-pill me-2 search-input"
+      type="search"
+      name="search"
+      placeholder="Search destinations"
+      value="<%= typeof search !== 'undefined' ? search : '' %>"
+    />
 
-  <button class="btn btn-search rounded-pill" type="submit">
-    <span>Search</span>
-    <i class="fa-solid fa-magnifying-glass ms-1"></i>
-  </button>
+    <button class="btn btn-search rounded-pill" type="submit">
+      <span>Search</span>
+      <i class="fa-solid fa-magnifying-glass ms-1"></i>
+    </button>
 </form>
 
 
-<!-- RIGHT : Links -->
-<div class="d-flex align-items-center gap-3">
-  <a class="nav-link" href="/listings/new">Airbnb your home</a>
+  <!-- RIGHT : Links -->
+  <div class="d-flex align-items-center gap-3">
+    <a class="nav-link" href="/listings/new">Airbnb your home</a>
+    <a class="nav-link fw-semibold text-danger d-flex align-items-center gap-1"
+      href="/listings/trending">
+      <i class="fa-solid fa-fire"></i>
+      <span>Trending</span>
+    </a>
 
-  <% if (!currUser) { %>
-    <a class="nav-link fw-semibold" href="/signup">Sign up</a>
-    <a class="nav-link fw-semibold" href="/login">Log in</a>
-  <% } else { %>
-    <a class="nav-link fw-semibold" href="/logout">Log out</a>
-  <% } %>
-</div>
+    <% if (!currUser) { %>
+      <a class="nav-link fw-semibold" href="/signup">Sign up</a>
+      <a class="nav-link fw-semibold" href="/login">Log in</a>
+    <% } else { %>
+      <a class="nav-link fw-semibold" href="/logout">Log out</a>
+    <% } %>
+  </div>
 
 
 

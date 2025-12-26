@@ -25,6 +25,13 @@ router.get("/new",
   listingController.renderNewForm
 );
 
+// TRENDING LISTINGS
+router.get("/trending", wrapAsync(async (req, res) => {
+  const listings = await Listing.find({ isTrending: true });
+  res.render("listings/index.ejs", { listings });
+}));
+
+
 router
   .route("/:id")
   .get(
