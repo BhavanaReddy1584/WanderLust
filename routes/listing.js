@@ -27,8 +27,11 @@ router.get("/new",
 
 // TRENDING LISTINGS
 router.get("/trending", wrapAsync(async (req, res) => {
-  const listings = await Listing.find({ isTrending: true });
-  res.render("listings/index.ejs", { listings });
+  const allListings = await Listing.find({ isTrending: true });
+  res.render("listings/index.ejs", {
+    allListings,
+    search: ""
+  });
 }));
 
 

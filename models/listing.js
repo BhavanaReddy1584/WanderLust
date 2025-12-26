@@ -29,7 +29,6 @@ const listingSchema = new Schema({
   category: {
     type: [String],
     enum: [
-      // "Trending",
       "Amazing Pools",
       "Arctic",
       "Beach",
@@ -48,7 +47,7 @@ const listingSchema = new Schema({
     required: true
   },
 
-  //add tto trending automatically
+  //add to trending automatically
   isTrending: {
     type: Boolean,
     default: true,
