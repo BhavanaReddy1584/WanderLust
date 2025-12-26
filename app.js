@@ -22,8 +22,7 @@ const listingRouter = require("./routes/listing");
 const reviewRouter = require("./routes/review");
 const userRouter = require("./routes/user");
 
-// ================= DATABASE =================
-
+// DATABASE 
 const dbUrl = process.env.ATLASDB_URL;
 
 mongoose
@@ -31,8 +30,10 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log("MongoDB Error:", err));
 
-// ================= APP CONFIG =================
 
+app.set("trust proxy", 1);
+
+// APP CONFIG 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsMate);
@@ -41,8 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-// ================= SESSION STORE =================
-
+//  SESSION STORE 
 const store = MongoStore.create({
   mongoUrl: process.env.ATLASDB_URL,
   crypto: {
@@ -77,8 +77,7 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 app.use(flash());
 
-// ================= PASSPORT =================
-
+// PASSPORT 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -86,8 +85,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// ================= LOCALS =================
-
+// LOCALS 
 app.use((req, res, next) => {
   res.locals.currUser = req.user;
   res.locals.success = req.flash("success");
@@ -95,20 +93,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// ================= ROUTES =================
-
+// ROUTES 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-// ================= ROOT =================
-
+//  ROOT 
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });
 
-// ================= ERROR HANDLING =================
-
+// ERROR HANDLING 
 app.use("/", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
@@ -118,8 +113,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-// ================= SERVER =================
-
+// SERVER 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
