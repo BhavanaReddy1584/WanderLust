@@ -6,17 +6,19 @@ module.exports.index = async (req, res) => {
 
   let filter = {};
 
-  // CATEGORY FILTER
-  if (category) {
+  // Apply category filter ONLY if it exists in query
+  if (category && category !== "Trending") {
     filter.category = category;
   }
 
-  // LOCATION SEARCH (case-insensitive)
-  if (search) {
+  // Location search (case-insensitive)
+  if (search && search.trim() !== "") {
     filter.location = { $regex: search, $options: "i" };
   }
 
   const allListings = await Listing.find(filter);
+
+  console.log("Listings count:", allListings.length);
 
   res.render("listings/index.ejs", {
     allListings,
@@ -24,6 +26,8 @@ module.exports.index = async (req, res) => {
     search: search || ""
   });
 };
+
+
 
 
 module.exports.renderNewForm = (req, res) => {
