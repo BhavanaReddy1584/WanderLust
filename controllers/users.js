@@ -20,7 +20,7 @@ module.exports.signup = async(req, res, next) => {
         });
     }catch(e){
         req.flash("error", e.message);
-        res.redirect("signup");
+        res.redirect("/signup");
     }
 };
 
@@ -29,13 +29,13 @@ module.exports.renderLoginForm = (req, res) => {
     res.render("users/login.ejs");
 };
 
-module.exports.login = async(req, res) => {
+module.exports.login = async(req, res, next) => {
     req.flash("success", "Logged In Successfully");
     let redirectUrl = res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);
 };
 
-module.exports.logout = (req, res) => {
+module.exports.logout = (req, res, next) => {
     req.logout((err) => {
         if(err){
             return next(err);
