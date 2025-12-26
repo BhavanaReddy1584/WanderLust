@@ -51,6 +51,11 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
+store.on("error", function (e) {
+  console.log("SESSION STORE ERROR", e);
+});
+
+
 const sessionOptions = {
   store,
   name: "session",
@@ -59,10 +64,13 @@ const sessionOptions = {
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
+    secure: process.env.NODE_ENV === "production", // IMPORTANT
+    sameSite: "lax",
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
   },
 };
+
 
 
 
@@ -101,10 +109,9 @@ app.get("/", (req, res) => {
 
 // ================= ERROR HANDLING =================
 
-app.use((req, res, next) => {
+app.use("/", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
-
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong" } = err;
@@ -117,3 +124,5 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+
